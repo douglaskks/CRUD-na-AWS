@@ -1,6 +1,6 @@
-### Site na Nuvem (AWS)
+# Site na Nuvem (AWS)
 
-### 1° Etapa ( Rsolver o problema )
+## 1° Etapa ( Resolver o problema )
 
 <p> Inicialmente é necessário analisar qual o tipo de problema a empresa está passando<br>
 criei uma situação fictícia para poder resolver de forma rápida e prática através da AWS</p><br>
@@ -8,51 +8,52 @@ criei uma situação fictícia para poder resolver de forma rápida e prática a
     <code> Uma empresa chamada VFX utilizava um software de desenvolvimento próprio<br>
          que estava apresentando lentidão e quedas constantes e isso ocasionava um<br>
          grande impacto nos resultados do negócio. <code>
+    
 <details>
-<summary><h2> Problemas Técnicos (Fictício)</h2></summary>
-<p> - Estava junto com outras VM´s </p>
-<p> - Quedas no sistema </p>
-<p> - Apresentava problemas de hardware </p>
-<p> - Precisava trocar o servidor já que tinha 5 anos </p>
-<p> - Usuários reclamando de lentidão</p>
-<p> - Backup ineficiente e perda de dados</p>
-<p> - Custos altos de manutenção e contratação </p>
+<summary><h2> Problemas Técnicos</h2></summary>
+- Estava junto com outras VM´s
+- Quedas no sistema
+- Apresentava problemas de hardware
+- Precisava trocar o servidor já que tinha 5 anos
+- Usuários reclamando de lentidão
+- Backup ineficiente e perda de dados
+- Custos altos de manutenção e contratação
 </details>
 
 <details>
-<summary><h2> Impactos no negócio (Fictício)</h2></summary>
-<p> - Equipe sem poder trabalhar </p>
-<p> - Clientes insatisfeitos por motivo da demora</p>
-<p> - Os usuários culpam o sistema </p>
-<p> - Perda de clientes </p>
-<p> - Atrasos na logística</p>
-<p> - Perdas financeiras</p>
-<p> - Produtividade da equipe </p>
+<summary><h2> Impactos no negócio</h2></summary>
+- Equipe sem poder trabalhar
+- Clientes insatisfeitos por motivo da demora
+- Os usuários culpam o sistema
+- Perda de clientes
+- Atrasos na logística
+- Perdas financeiras
+- Produtividade da equipe
 </details>
 
 <details>
-<summary><h2> Impacto para infra (Fictício)</h2></summary>
-<p> - Muitos recursos para gerenciar </p>
-<p> - Falta de equipamentos de qualidade </p>
-<p> - Incidentes fora do horário (dor de cabeça) </p>
-<p> - Viver apagando incêndio e sem tempo para capacitação </p>
-<p> - Stress constante e quase sem vida social</p>
-<p> - Só recebem críticas e não se sentem valorizados</p>
-<p> - Desmotivado com a profissão </p>
+<summary><h2> Impacto para infra</h2></summary>
+- Muitos recursos para gerenciar
+- Falta de equipamentos de qualidade
+- Incidentes fora do horário (dor de cabeça)
+- Viver apagando incêndio e sem tempo para capacitação
+- Stress constante e quase sem vida social
+- Só recebem críticas e não se sentem valorizados
+- Desmotivado com a profissão
 </details>
 
 <details>
-<summary><h2> Impacto para Devs (Fictício)</h2></summary>
-<p> - Necessidade de gerenciar infra </p>
-<p> - Deficuldade no deploy </p>
-<p> - Muitos projetos inviabilizados </p>
-<p> - Muito suporte </p>
-<p> - Dificuldade de manter a alta disponibilidade</p>
-<p> - Problemas para criar ambientes de homologação</p>
+<summary><h2> Impacto para Devs</h2></summary>
+- Necessidade de gerenciar infra
+- Deficuldade no deploy
+- Muitos projetos inviabilizados
+- Muito suporte
+- Dificuldade de manter a alta disponibilidade
+- Problemas para criar ambientes de homologação
 </details>
     
     
-### Detalhes da instância AWS (Amazon Web Services)
+## Detalhes da instância AWS (Amazon Web Services)
 Inicialmente foi necessário criar uma instância EC2 do tipo Ubuntu server Versão 20.04LTS<br>
 abaixo terá a tabela completa, lembre de adicionar um ip públixo a instância<br>
     
@@ -77,7 +78,7 @@ estou utilizando porquê é um ambiente apenas para testes, nada de confidência
 a instância foi criada apenas para fins práticos.
 </div><br>
     
-### Passo a passo para a execução do projeto
+# Passo a passo para a execução do projeto
     
 Após a configuração da instãncia EC2 na opção de <strong>Dados do Usuário</strong><br>
 Será adicionado o seguinte código bash para adiantar algumas coisas<br>
@@ -102,3 +103,38 @@ Será adicionado o seguinte código bash para adiantar algumas coisas<br>
 Após isso pode executar a instância, assim que as verificações estarem completas entre no<br>
 navegador e coloque o ip público da instãncia em execução para ver o site que foi adicionao<br>
 na máquina no ar.
+    
+    
+# 2° Etapa ( Disponiblidade )
+
+<h2> a partir daqui será configurado o banco de dados, de maneira geral é bem simples<br>
+     após a 1° etapa está pronta vamos configurar e deixar no ar o banco de dados criado<br>
+    através do RDS na AWS.</h2>
+    
+    
+## Detalhes do Banco de Dados RDS
+    
+.|.|.|.
+---|---|---|---
+Tipo de Banco de Dados | Nome do BD | Tipo de criação | Modelo de BD
+Relacional | banco | Padrão | MySQL Community
+    
+    
+<h3> Ao selecionar a opção <strong>Criar Banco de dados</strong> você irá selecionar<br>
+    as seguintes opções: </h3>
+
+- Cração Padrão
+- MySQL ( Edição MySQL Community )
+- Versão 8.0.32
+- Modelos ( Nível Gratuito )
+- identificados ( ou deixa o padrão ou coloque o nome de preferir )
+- Nome do usuário (admin ou de sua escolha)
+- Senha principal ( Recomendo utilizar uma senha numérica apenas pois a aplicação está com bug )
+- Tipo de Armazenamneto ( SSD )
+- Escolher qual a subnet a ser usada ( OBS: é necessário ter subnets em 2 AZ´s )
+- Acesso público ( Não )
+- Grupo de VPC ( Pode ser Default )
+- Autenticação de banco de dados ( Autenticação de senha )
+- Criar Banco de Dados
+
+OBS: Após criar o Banco de Dados espera de 3 a 5 minutos, demora um pouco.
