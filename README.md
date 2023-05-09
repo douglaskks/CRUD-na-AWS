@@ -107,9 +107,9 @@ na máquina no ar.
     
 # 2° Etapa ( Disponiblidade )
 
-<h2> a partir daqui será configurado o banco de dados, de maneira geral é bem simples<br>
-     após a 1° etapa está pronta vamos configurar e deixar no ar o banco de dados criado<br>
-    através do RDS na AWS.</h2>
+<h2> A partir daqui será configurado o banco de dados, de maneira geral é bem simples<br>
+após a 1° etapa está pronta vamos configurar e deixar no ar o banco de dados criado<br>
+através do RDS na AWS.</h2>
     
     
 ## Detalhes do Banco de Dados RDS
@@ -123,11 +123,11 @@ Relacional | banco | Padrão | MySQL Community
 <h3> Ao selecionar a opção <strong>Criar Banco de dados</strong> você irá selecionar<br>
     as seguintes opções: </h3>
 
-- Cração Padrão
+- Criação Padrão
 - MySQL ( Edição MySQL Community )
 - Versão 8.0.32
 - Modelos ( Nível Gratuito )
-- identificados ( ou deixa o padrão ou coloque o nome de preferir )
+- identificados ( ou deixa o padrão ou coloque o nome que preferir )
 - Nome do usuário (admin ou de sua escolha)
 - Senha principal ( Recomendo utilizar uma senha numérica apenas pois a aplicação está com bug )
 - Tipo de Armazenamneto ( SSD )
@@ -138,3 +138,38 @@ Relacional | banco | Padrão | MySQL Community
 - Criar Banco de Dados
 
 OBS: Após criar o Banco de Dados espera de 3 a 5 minutos, demora um pouco.
+    
+    
+# 3° Etapa ( Criar um S3 )
+    
+<h2> A configuração do Bucket S3 será a Seguinte: </h2>
+
+- Escolher o serviço S3
+- Escolher um nome para o bucket
+- Escolher a região do bucket ( pode ser o norte da virgínia mesmo )
+- Propriedades do Objeto (Acls Habilitadas)
+- Configurações de bloqueio ( Desmarca a seleção de bloqueio para ficar público )
+- Confirma que reconhece as configurações atuais
+- Ativa o versionamento
+- Criptografia ( padrão )
+- Configurações avançadas - Bloqueio de objeto ( Desativar )
+- Criar bucket
+
+## É necessário algumas configurações de segurança dentro do bucket:
+ 
+- Propriedades ( Habilitar Hospedagem de site estático )
+- Documento de índice ( index.html )
+- Documento de erro ( index.html )
+- Permissões
+- política de acesso ( editar )
+- gerador de políticas
+    - Tipo de política ( S3 bucket policy )
+    - Efeito ( Allow ou permitir )
+    - principal ( * )
+    - Actions ( GetObject )
+    - e adicione o link do ARN do seu bucket criado + /*
+      Exemplo: linkDoArn/*
+    - Gerar política
+    - Copia a política gerada e cola lá onde estava a opção de editar política do bucket S3
+    - Salvar Alterações
+    
