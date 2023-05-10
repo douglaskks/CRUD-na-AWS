@@ -173,3 +173,48 @@ OBS: Após criar o Banco de Dados espera de 3 a 5 minutos, demora um pouco.
     - Copia a política gerada e cola lá onde estava a opção de editar política do bucket S3
     - Salvar Alterações
     
+## Agora será necessário criar um usuário no IAM para ter acesso ao bucket S3:
+    
+- Entre no IAM da AWS
+- Entre na opção de <strong>Usuários</strong>
+- Adicionar Usuários
+- Escolha o nome do Usuário
+- Anexar política diretamente
+- Escolha a política <strong>AmazonS3FullAccess</strong>
+- Próximo
+- Pode criar o usuário
+
+## Agora é necessário criar um Access Key e uma Secret key para esse usuário
+
+- Clica no usuário criado
+- Clica em credenciais de segurança
+- Escolha a opção "Aplicação em execução em um serviço computacional da AWS"
+- Marca a opção que compreende a recomendação acima
+- Crie um nome para a chave (por exemplo "ec2s3" vai ser utilizado aqui")
+- Criar chave de acesso
+
+### Agora lá no site que ficou no ar pode preencher com as informações que se pede,<br>
+vou preencher de acordo com que fiz no meu:
+    
+.|.|.|.
+---|---|---|---
+Bucket | Região | AccessKey | SecretKey
+first-bucket-s3-test | us-east-1 | Sua AccessKey | Sua SecretKey
+
+# Após o sucesso, pode enviar uma logo através do botão
+
+# Agora vamos criar uma AMI
+
+- Entra na EC2
+- Entra na opção Instâncias
+- Seleciona a instância a ser copiada
+- Ações
+- Imagens e Modelos
+- Criar Imagem
+
+# Após isso preencha o que se pede
+
+- Escolha o nome da imagem ( aqui vai ser "app_funcionando-web" )
+- Deixa a opção não reinicializar desmarcada
+- Criar imagem
+- A partir dai será criada um modelo para criar novas instâncias a partir dessa imagem
