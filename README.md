@@ -2,7 +2,7 @@
 
 ## 1° Etapa ( Resolver o problema )
 
-<p> Inicialmente é necessário analisar qual o tipo de problema a empresa está passando<br>
+<p> Inicialmente é necessário analisar qual o tipo de problema a empresa precisa resolver<br>
 criei uma situação fictícia para poder resolver de forma rápida e prática através da AWS</p><br>
 <h2>Problema: </h2><br>
     <code> Uma empresa chamada VFX utilizava um software de desenvolvimento próprio<br>
