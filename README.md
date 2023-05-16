@@ -218,3 +218,7 @@ first-bucket-s3-test | us-east-1 | Sua AccessKey | Sua SecretKey
 - Deixa a opção não reinicializar desmarcada
 - Criar imagem
 - A partir dai será criada um modelo para criar novas instâncias a partir dessa imagem
+
+# Verficcar todos os serviços
+    
+ - Agora é necessários se todos os serviçoes estão funcionando corretamente
