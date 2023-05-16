@@ -222,3 +222,4 @@ first-bucket-s3-test | us-east-1 | Sua AccessKey | Sua SecretKey
 # Verficcar todos os serviços
     
  - Agora é necessários se todos os serviçoes estão funcionando corretamente
+ - Verificar bugs e erros que podem estar acontecendo
